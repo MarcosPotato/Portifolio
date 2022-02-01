@@ -19,14 +19,22 @@ export const ThemeProvider: React.FC = ({ children }) => {
         if(theme){
             return theme
         } else{
-            return "light"
+            const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+
+            if (darkThemeMq.matches) {
+                localStorage.setItem("@PortifolioMM:theme", "dark")
+                return "dark"
+            } else {
+                localStorage.setItem("@PortifolioMM:theme", "light")
+                return "light"
+            }
         }
     })
 
     const changeTheme = useCallback((type: "light" | "dark") => {
         localStorage.setItem("@PortifolioMM:theme", type)
         setCurrentTheme(type)
-    },[currentTheme])
+    },[])
 
     return(
         <ThemeContext.Provider value={{ currentTheme: currentTheme, changeTheme }}>

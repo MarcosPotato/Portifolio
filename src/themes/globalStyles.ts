@@ -18,7 +18,7 @@ export default createGlobalStyle<GlobalStyleProps>`
         color: #000000;
 
         ${ porps => porps.appTheme === "dark" && css`
-            background-color: #262427;
+            background-color: #121211;
             color: #F9F9F9;
         `}
 
@@ -39,5 +39,9 @@ export default createGlobalStyle<GlobalStyleProps>`
 
     button{
         cursor: pointer;
+    }
+
+    a{
+        text-decoration: none;
     }
 `
