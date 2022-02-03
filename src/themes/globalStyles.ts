@@ -39,9 +39,21 @@ export default createGlobalStyle<GlobalStyleProps>`
 
     button{
         cursor: pointer;
+        border: none;
+        background-color: #00000000;
     }
 
     a{
         text-decoration: none;
+    }
+
+    .MuiDrawer-paper {
+        width: 60% !important;
+    }
+
+    @media (max-width: 1200px) {
+        .MuiDrawer-paper {
+            width: 100% !important;
+        }
     }
 `

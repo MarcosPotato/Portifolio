@@ -1,12 +1,12 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useState } from "react"
 import { Link, useMatch } from "react-router-dom"
 import { Drawer } from '@mui/material'
 
 import { useTheme } from "../../hooks/themeContext"
 import { FiMenu } from 'react-icons/fi'
-import { BsMoonStars, BsSun } from 'react-icons/bs'
-
+import { AiOutlineClose } from 'react-icons/ai'
+ 
 import { 
     Container, 
     MenuActions,
@@ -20,6 +20,10 @@ const MenuBar: React.FC = () => {
     const match = useMatch("/*")
 
     const [openMenu, setOpenMenu] = useState<boolean>(false)
+
+    useEffect(() => {
+        setOpenMenu(false)
+    },[match?.pathname])
 
     return(
         <Container>
@@ -45,10 +49,36 @@ const MenuBar: React.FC = () => {
                 onClose={() => setOpenMenu(false)}
             >
                 <MobileMenu theme={ theme.currentTheme }>
-                    <MobileMenuButton isSelected={ (match?.pathname === "/about")? true : false } to="">Sobre Mim</MobileMenuButton>
+                    <button onClick={() => setOpenMenu(false)}><AiOutlineClose/></button>
+                    <MobileMenuButton 
+                        to="/"
+                        theme={ theme.currentTheme }
+                        isSelected={ (match?.pathname === "/")? true : false } 
+                    >
+                        Home
+                    </MobileMenuButton>
+                    <MobileMenuButton 
+                        to="/about"
+                        theme={ theme.currentTheme }
+                        isSelected={ (match?.pathname === "/about")? true : false } 
+                    >
+                        Sobre Mim
+                    </MobileMenuButton>
                     <button>Projetos</button>
-                    <button>Contato</button>
-                    <MobileMenuButton isSelected={ (match?.pathname === "/skills")? true : false } to="">Skills</MobileMenuButton>
+                    <MobileMenuButton 
+                        to="/contact"
+                        theme={ theme.currentTheme }
+                        isSelected={ (match?.pathname === "/contact")? true : false } 
+                    >
+                        Contato
+                    </MobileMenuButton>
+                    <MobileMenuButton 
+                        to="/skills"
+                        theme={ theme.currentTheme }
+                        isSelected={ (match?.pathname === "/skills")? true : false } 
+                    >
+                        Skills
+                    </MobileMenuButton>
                 </MobileMenu>
             </Drawer>
         </Container>

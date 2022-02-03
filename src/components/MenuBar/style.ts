@@ -3,7 +3,6 @@ import { css } from "styled-components"
 import { shade } from "polished"
 import { Link } from 'react-router-dom'
 import { Switch } from '@mui/material'
-import { IconType } from "react-icons/lib"
 
 import MoonIcon from '../../assets/logos/moon.svg'
 import SunIcon from '../../assets/logos/sun.svg'
@@ -18,6 +17,7 @@ interface MenuProps{
 
 interface MobileMenuButtonProps{
     isSelected: boolean
+    theme?: string
 }
 
 export const Container = styled.div`
@@ -129,7 +129,7 @@ export const MenuActions = styled.div<MenuProps>`
 `
 
 export const MobileMenu = styled.div<MobileMenuProps>`
-    width: 180px;
+    width: 100%;
     height: 100vh;
     background-color: #F9F9F9;
     display: flex;
@@ -156,41 +156,37 @@ export const MobileMenu = styled.div<MobileMenuProps>`
     }
 
     button{
-        width: 100%;
         font-family: Roboto, sans-serif;
         font-style: normal;
         font-size: 1.8rem;
         font-weight: 500;
         color: #940CD3;
         text-align: center;
-        border-bottom: 4px solid #7F08B7;
+        margin: 15px 0px;
         transition: 150ms;
 
         &:active{
-            background-color: ${shade(0.5, "#940CD3")};
             color: #F9F9F9;
+            
+            ${ props => props.theme === "light" && css`
+                color: #262427;
+            `}
+            
+            ${ props => props.theme === "dark" && css`
+                color: #F9F9F9;
+            `}
         }
-
-        ${ props => props.theme === "light" && css`
-            background-color: #F9F9F9;
-        `}
-
-        ${ props => props.theme === "dark" && css`
-            background-color: #262427;
-        `}
     }
 `
 
 export const MobileMenuButton = styled(Link)<MobileMenuButtonProps>`
-    /* background-color: #F9F9F9; */
-    width: 100%;
     font-family: Roboto, sans-serif;
     font-style: normal;
     font-size: 1.8rem;
+    margin: 15px 0px;
     font-weight: 500;
     color: #940CD3;
     text-align: center;
-    border-bottom: 4px solid #7F08B7;
     transition: 150ms;
 
     &:active{
@@ -199,8 +195,13 @@ export const MobileMenuButton = styled(Link)<MobileMenuButtonProps>`
     }
 
     ${ props => props.isSelected && css`
-        color: #F9F9F9;
-        background-color: ${shade(0.5, "#940CD3")} !important;
+        ${ props => props.theme === "light" && css`
+            color: #262427;
+        `}
+        
+        ${ props => props.theme === "dark" && css`
+            color: #F9F9F9;
+        `}
     `}
 `
 

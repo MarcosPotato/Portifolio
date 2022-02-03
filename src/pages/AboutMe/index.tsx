@@ -8,7 +8,6 @@ const AboutMe: React.FC = () => {
             <Apresentation>
                 
             </Apresentation>
-            <h1>Hello World</h1>
         </Container>
     )
 }
