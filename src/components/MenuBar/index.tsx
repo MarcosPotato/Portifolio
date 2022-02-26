@@ -13,8 +13,7 @@ import {
     MenuActions,
     MobileMenu,
     MobileMenuButton,
-    ToggleThemeButton,
-    MobileMenuScrollLink
+    ToggleThemeButton
 } from "./style"
 
 const MenuBar: React.FC = () => {
