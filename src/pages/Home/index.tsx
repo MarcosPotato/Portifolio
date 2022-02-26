@@ -1,23 +1,35 @@
-import React from "react"
+import React, { useState } from "react"
 import { useTheme } from "../../hooks/themeContext"
 
 import ContactCard from "../../components/ConstactCard"
 
-import HomeImg from '../../assets/images/home.png'
+import HomeImg from '../../assets/images/home-image.svg'
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
+import TesteImage from '../../assets/images/teste.png'
 
 import {
     Container,
     Welcome,
     InfoWelcome,
-    Resume
+    Resume,
+    Projects,
+    ProjectsCard
 } from './style'
+
+interface ProjectsData{
+    name: string
+    description: string
+    link: string
+    image: string
+}
 
 const Home: React.FC = () => {
 
     const { currentTheme } = useTheme()
+
+    const [projectsData,] = useState<Array<ProjectsData>>(JSON.parse(JSON.stringify(require("../../data/repositories.json"))))
 
     return(
         <Container theme={ currentTheme }>
@@ -31,7 +43,6 @@ const Home: React.FC = () => {
                     </div>
                 </InfoWelcome>
                 <img src={ HomeImg } alt="home"/>
-                <p>Desenvolvedor Full Stack React e NodeJs</p>
             </Welcome>
             <Resume>
                 <h1>Resumo</h1>
@@ -48,9 +59,41 @@ const Home: React.FC = () => {
                         name="Github"
                         info="Marcos Moreira"
                         link="https://github.com/MarcosPotato"
+                        theme={ currentTheme }
+                    />
+                    <ContactCard 
+                        icon={ MdEmail}
+                        name="Email"
+                        info="marquinhos2725@hotmail.com"
+                        link={`mailto:marquinhos2725@hotmail.com?subject=Email%20para%20contato`}
+                        theme={ currentTheme }
+                    />
+                    <ContactCard 
+                        icon={ BsLinkedin }
+                        name="Linkedin"
+                        info="Marcos Moreira"
+                        link="https://www.linkedin.com/in/moreira-dev/"
+                        theme={ currentTheme }
                     />
                 </div>
             </Resume>
+            <Projects theme={ currentTheme }>
+                <h1>Projetos</h1>
+                { projectsData.map((project, index) => (
+                    <ProjectsCard
+                        key={ index } 
+                        bgImage={ project.image }
+                    >
+                        <div>
+                            <h1>{ project.name }</h1>
+                            <p>{ project.description }</p>
+                            <div>
+                                <a href={ project.link } target="_blank" rel="porjectlink">Veja mais...</a>
+                            </div>
+                        </div>
+                    </ProjectsCard>
+                ))}
+            </Projects>
         </Container>
     )
 }

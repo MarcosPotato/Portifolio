@@ -6,6 +6,10 @@ interface ThemeProps {
     theme: string
 }
 
+interface ProjectsCardProps{
+    bgImage: string
+}
+
 export const Container = styled.div<ThemeProps>`
     width: 100%;
     max-width: 1650px;
@@ -38,19 +42,10 @@ export const Welcome = styled.div`
     position: relative;
 
     img{
-       width: 32%;
+       width: 40%;
+       height: 600px;
        min-width: 400px;
-    }
-
-    > p {
-        font-family: Roboto, sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 28px;
-        position: absolute;
-        right: 180px;
-        bottom: -25px;
+       margin-top: -100px;
     }
 
     @media(max-width: 980px){
@@ -67,9 +62,14 @@ export const Welcome = styled.div`
         > p{
             display: none
         }
+
+        img{
+            height: 40vh;
+            margin-top: 0px;
+        }
     }
 
-    @media(max-width: 500px){
+    @media(max-width: 982px){
         margin-bottom: 8vh;
     }
 `
@@ -107,7 +107,7 @@ export const InfoWelcome = styled.div<ThemeProps>`
 
         button, a{
             width: 48%;
-            min-width: 160px;
+            //min-width: 160px;
             height: 66px;
             border-radius: 5px;
             font-family: Roboto, sans-serif;
@@ -196,6 +196,7 @@ export const Resume = styled.div`
     width: 100%;
     max-width: 1650px;
     margin: 0 auto;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,6 +217,7 @@ export const Resume = styled.div`
         border: 5px solid #7F08B7;
         box-sizing: border-box;
         border-radius: 10px;
+        margin-bottom: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -235,5 +237,116 @@ export const Resume = styled.div`
                 font-size: 20px;
             }
         }
+    }
+
+    div.contacts{
+        width: 85%;
+        height: auto;
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+`
+
+export const Projects = styled.div<ThemeProps>`
+    width: 100%;
+    max-width: 1600px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    > h1{
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        color: #940CD3;
+        margin-bottom: 25px;
+        position: absolute;
+        top: -80px;
+        margin: 0 auto;
+    }
+
+    > div{
+        box-shadow: 5px 5px 5px ${props => props.theme === "light" ? "#b0b0b0" : "#0a0a0a"};
+    }
+`
+
+export const ProjectsCard = styled.div<ProjectsCardProps>`
+    background-image: url(${props => props.bgImage});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 30%;
+    height: 275px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+
+    > div{
+        position: relative;
+        background-color: black;
+        border-radius: 0px 0px 7px 7px;
+        height: 60px;
+        padding: 10px;
+        transition: 250ms;
+        overflow: hidden;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0.87718837535014) 50%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
+        
+        h1, p{
+            color: #f9f9f9;
+        }
+
+        p{
+            display: none;
+            transition: 100ms
+        }
+
+        div{
+            width: 100%;
+            flex-direction: row;
+            justify-content: flex-end;
+            display: none;
+        }
+
+        a{
+            color: #940cd3;
+            text-decoration: none;
+        }
+    }
+
+    &:hover{
+        cursor: pointer;
+
+        > div{
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.87718837535014) 65%, rgba(0,0,0,0) 100%);
+
+            p, div{
+                display: flex;
+            }
+        }
+    }
+
+    @media(max-width: 1050px){
+        width: 45%;
+    }
+    @media(max-width: 800px){
+        width: 90%;
     }
 `
