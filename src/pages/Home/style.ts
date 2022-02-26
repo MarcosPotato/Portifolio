@@ -121,54 +121,57 @@ export const InfoWelcome = styled.div<ThemeProps>`
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-        }
-
-        a{
-            background: #940CD3;
-            font-weight: normal;
-            color: #FFFFFF;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-decoration: none;
+        
+            &:first-child{
+                background: #940CD3;
+                font-weight: normal;
+                color: #FFFFFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+        
+                &:hover{
+                    background-color: ${ shade(0.2, "#940CD3")};
+                }
+        
+                &:active{
+                    background-color: ${ shade(0.3, "#940CD3")};
+                }
+
+            }
+
+            &:last-child{
+                font-weight: 600;
+                color: #940CD3;
+                
+                &:hover{
+                    border: 2px solid #7F08B7;
+                    border-radius: 10px 100px 10px 100px;
+                    color: ${ shade(0.2, "#940CD3")};
+                }
     
-            &:hover{
-                background-color: ${ shade(0.2, "#940CD3")};
-            }
-    
-            &:active{
-                background-color: ${ shade(0.3, "#940CD3")};
-            }
-        }
-
-        button{
-            font-weight: 600;
-            color: #940CD3;
-            
-            &:hover{
-                border: 2px solid #7F08B7;
-                border-radius: 10px 100px 10px 100px;
-                color: ${ shade(0.2, "#940CD3")};
-            }
-
-            &:active{
-                border: 2px solid #7F08B7;
-                border-radius: 10px;
-                color: ${ shade(0.3, "#940CD3")};
-                background-color: ${ shade(0.1, "#f9f9f9")};
-
-                ${ props => props.theme === "light" && css`
+                &:active{
+                    border: 2px solid #7F08B7;
+                    border-radius: 10px;
                     color: ${ shade(0.3, "#940CD3")};
                     background-color: ${ shade(0.1, "#f9f9f9")};
-                `}
-
-                ${ props => props.theme === "dark" && css`
-                    color: ${ shade(0.1, "#940CD3")};
-                    background-color: ${ shade(0.9, "#f9f9f9")};
-                `}
+    
+                    ${ props => props.theme === "light" && css`
+                        color: ${ shade(0.3, "#940CD3")};
+                        background-color: ${ shade(0.1, "#f9f9f9")};
+                    `}
+    
+                    ${ props => props.theme === "dark" && css`
+                        color: ${ shade(0.1, "#940CD3")};
+                        background-color: ${ shade(0.9, "#f9f9f9")};
+                    `}
+                }
             }
         }
-
     }
 
     @media(max-width: 980px){
@@ -256,7 +259,7 @@ export const Projects = styled.div<ThemeProps>`
     max-width: 1600px;
     margin: 0px auto;
     margin-bottom: 20px;
-    margin-top: 60px;
+    padding-top: 80px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -272,7 +275,7 @@ export const Projects = styled.div<ThemeProps>`
         color: #940CD3;
         margin-bottom: 25px;
         position: absolute;
-        top: -80px;
+        top: -5px;
         margin: 0 auto;
     }
 
@@ -348,5 +351,136 @@ export const ProjectsCard = styled.div<ProjectsCardProps>`
     }
     @media(max-width: 800px){
         width: 90%;
+    }
+`
+
+export const Services = styled.div`
+    width: 100%;
+    max-width: 1600px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    > h1{
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        color: #940CD3;
+        margin-bottom: 25px;
+        position: absolute;
+        top: -80px;
+        margin: 0 auto;
+    }
+`
+
+export const ServicesCard = styled.div`
+    width: 30%;
+    height: 275px;
+    border: 1px solid #940CD3;
+    border-bottom-width: 7px;
+    transition: 250ms;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    background-color: #FFFFFF00;
+    margin-bottom: 25px;
+
+    svg{
+        position: absolute;
+        top: 35px;
+        right: 35px;
+        width: 80px;
+        height: 80px;
+        color: #940CD3;
+    }
+
+    h1{
+        color: #940CD3;
+        width: 70%;
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 56px;
+        display: flex;
+        align-items: center;
+        margin: 15px;
+
+        @media(max-width: 340px){
+            font-size: 30px;
+        }
+    }
+
+    &:hover{
+        cursor: default;
+        border-bottom-width: 15px;
+    }
+
+    @media(max-width: 1300px){
+        width: 45%;
+    }
+    @media(max-width: 800px){
+        width: 90%;
+    }
+`
+
+export const Skills = styled.div`
+    width: 100%;
+    max-width: 1600px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    > h1{
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 56px;
+        color: #940CD3;
+        margin-bottom: -100px;
+    }
+
+    @media(min-width: 750px){
+        > div{
+            margin: 0px !important;
+        }
+    }
+
+    @media(max-width: 750px){
+        margin-top: 80px;
+
+        > h1{
+            margin-bottom: 25px;
+            position: absolute;
+            top: -80px;
+            margin: 0 auto;
+        }
+    }
+`
+
+export const Footer = styled.footer`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3px 0px;
+    background-color: #940CD3;
+
+    p{
+        color: #fff;
+        font-family: Roboto-Bold, sans-serif;
+        font-weight: 600;
     }
 `

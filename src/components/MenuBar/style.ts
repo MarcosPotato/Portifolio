@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { css } from "styled-components"
 import { shade } from "polished"
 import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll'
 import { Switch } from '@mui/material'
 
 import MoonIcon from '../../assets/logos/moon.svg'
@@ -99,6 +100,7 @@ export const MenuActions = styled.div<MenuProps>`
         transition: 150ms;
 
         &:hover{
+            cursor: pointer;
             background-color: ${ shade(0.1, "#F9F9F9") }
         }
 
@@ -203,6 +205,29 @@ export const MobileMenuButton = styled(Link)<MobileMenuButtonProps>`
             color: #F9F9F9;
         `}
     `}
+`
+
+export const MobileMenuScrollLink = styled(ScrollLink)<{theme: string}>`
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-size: 1.8rem;
+    margin: 15px 0px;
+    font-weight: 500;
+    color: #940CD3;
+    text-align: center;
+    transition: 150ms;
+
+    &:active{
+        background-color: ${shade(0.5, "#940CD3")};
+        ${ props => props.theme === "light" && css`
+            color: #262427;
+        `}
+        
+        ${ props => props.theme === "dark" && css`
+            color: #F9F9F9;
+        `}
+    }
+
 `
 
 export const ToggleThemeButton = styled(Switch)`

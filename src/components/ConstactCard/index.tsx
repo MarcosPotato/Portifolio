@@ -28,7 +28,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon: Icon, link, name, info,
 
     return(
         <Container>
-            <a href={ link } target='_blank'>
+            <a href={ link } target='_blank' rel="noreferrer">
                 <Icon color={ verifyTheme() }/>
             </a>
             <h1>{ name }</h1>

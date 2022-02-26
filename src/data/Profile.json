@@ -1,0 +1,176 @@
+{
+    "data": {
+        "title": "Desenvolvedor Web",
+        "name": "Marcos Moreira",
+        "age": 20,
+        "address": "Salto-SP, Brasil",
+        "description": "Fascinado pela tecnologia me familiarizei com a área de programação, visando ser um facilitador de processos e na resolução de problemas. Buscando desenvolver soluções que ajudem a tornar uma página web mais dinâmicas e funcionais sempre buscando aprimorar meus conhecimentos e aprender coisas novas na área para concretizar às novas ideias.",
+        "contacts": {
+            "gitHub": "https://github.com/MarcosPotato",
+            "linkedin": "https://www.linkedin.com/in/moreira-dev",
+            "facebook": "https://www.facebook.com/marcos.moreira.102977/",
+            "email": "marquinhos2725@hotmail.com"
+        },
+        "habilities": [
+            {
+                "name": "HTML5",
+                "level": 5
+            },
+            {
+                "name": "JSON",
+                "level": 5
+            },
+            {
+                "name": "Javascript",
+                "level": 4
+            },
+            {
+                "name": "React",
+                "level": 4
+            },
+            {
+                "name": "Styled Components",
+                "level": 4
+            },
+            {
+                "name": "Node js",
+                "level": 4
+            },
+            {
+                "name": "Material UI",
+                "level": 4
+            },
+            {
+                "name": "CSS3",
+                "level": 4
+            },
+            {
+                "name": "Knex js",
+                "level": 4
+            },
+            {
+                "name": "Designer Patterns",
+                "level": 4
+            },
+            {
+                "name": "MySQL",
+                "level": 4
+            },
+            {
+                "name": "Git e Github",
+                "level": 3
+            },
+            {
+                "name": "Ionic",
+                "level": 3
+            },
+            {
+                "name": "Postgres",
+                "level": 3
+            },
+            {
+                "name": "SCRUM",
+                "level": 3
+            },
+            {
+                "name": "Vue js",
+                "level": 3
+            },
+            {
+                "name": "SASS",
+                "level": 3
+            },
+            {
+                "name": "JAVA",
+                "level": 3
+            },
+            {
+                "name": "C#",
+                "level": 3
+            },
+            {
+                "name": "Typescript",
+                "level": 3
+            },
+            {
+                "name": "TypeORM",
+                "level": 3
+            },
+            {
+                "name": "Python",
+                "level": 3
+            },
+            {
+                "name": "Redes",
+                "level": 3
+            },
+            {
+                "name": "Socket IO",
+                "level": 2
+            },
+            {
+                "name": "Angular",
+                "level": 2
+            },
+            {
+                "name": "Docker",
+                "level": 2
+            },
+            {
+                "name": "PHP",
+                "level": 2
+            },
+            {
+                "name": "Mongo DB",
+                "level": 2
+            }
+        ],
+        "certificates": [
+            {
+                "name": "Curso Web Moderno Completo com Javascipt",
+                "backgorundImage": "https://www.brasilcode.com.br/wp-content/uploads/2020/06/React_angular_vue-1024x427.png",
+                "logoImage": "https://newcastlebeach.org/images/udemy-logo-8.jpg",
+                "university": "Udemy",
+                "date": "24/11/2020",
+                "duration": 264,
+                "certificateLink": ""
+            },
+            {
+                "name": "Semana OmniStack",
+                "backgorundImage": "https://1.bp.blogspot.com/-wykSXXqwDgM/X7A6h50Y-kI/AAAAAAAABxA/R37E0e_IdVsWtnNm07kklOOAHH59hsODACLcBGAsYHQ/s16000/OmniStack.jpg",
+                "logoImage": "https://th.bing.com/th/id/R.019a82fdfd490e6877097c3a2bcfd460?rik=Fd2tnmd1%2baOEsg&pid=ImgRaw",
+                "university": "Rocketseat",
+                "date": "29/03/2020",
+                "duration": 10,
+                "certificateLink": ""
+            },
+            {
+                "name": "Curso Online Web Design",
+                "backgorundImage": "https://th.bing.com/th/id/OIP.XZe581blfnzvQRVN01fCdgHaDw?pid=ImgDet&rs=1",
+                "logoImage": "https://newcastlebeach.org/images/udemy-logo-8.jpg",
+                "university": "Udemy",
+                "date": "06/01/2020",
+                "duration": 13.5,
+                "certificateLink": ""
+            },
+            {
+                "name": "Aprenda PHP do Zero",
+                "backgorundImage": "https://th.bing.com/th/id/OIP.WR6Jf0Mm9ts8EyI8J9NCgwHaDz?pid=ImgDet&rs=1",
+                "logoImage": "https://newcastlebeach.org/images/udemy-logo-8.jpg",
+                "university": "Udemy",
+                "date": "16/08/2019",
+                "duration": 9.5,
+                "certificateLink": ""
+            },
+            {
+                "name": "Designer de Games",
+                "backgorundImage": "https://fmeducadora.com.br/wp-content/uploads/2020/06/a-microcamp.jpg",
+                "logoImage": "https://microcamp.com.br/wp-content/uploads/2020/10/logo_microcamp.png",
+                "university": "Microcamp",
+                "date": "05/10/2016",
+                "duration": 264,
+                "certificateLink": ""
+            }
+        ]
+    }
+}

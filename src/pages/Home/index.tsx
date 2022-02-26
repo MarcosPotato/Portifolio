@@ -1,13 +1,18 @@
 import React, { useState } from "react"
 import { useTheme } from "../../hooks/themeContext"
+import { Link as ScrollLink } from 'react-scroll'
 
 import ContactCard from "../../components/ConstactCard"
+import Experiences from "../../components/Experiences"
 
 import HomeImg from '../../assets/images/home-image.svg'
 
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
-import TesteImage from '../../assets/images/teste.png'
+import { CgWebsite } from 'react-icons/cg'
+import { FaNodeJs, FaReact } from 'react-icons/fa'
+import { GrAndroid } from 'react-icons/gr'
+import { Hability } from "../../components/Experiences"
 
 import {
     Container,
@@ -15,7 +20,11 @@ import {
     InfoWelcome,
     Resume,
     Projects,
-    ProjectsCard
+    ProjectsCard,
+    Services,
+    ServicesCard,
+    Skills,
+    Footer
 } from './style'
 
 interface ProjectsData{
@@ -29,9 +38,13 @@ const Home: React.FC = () => {
 
     const { currentTheme } = useTheme()
 
-    const [projectsData,] = useState<Array<ProjectsData>>(JSON.parse(JSON.stringify(require("../../data/repositories.json"))))
+    const [projectsData] = useState<Array<ProjectsData>>(JSON.parse(JSON.stringify(require("../../data/repositories.json"))))
+    const [skillsData]   = useState<Array<Hability>>(JSON.parse(JSON.stringify(require("../../data/Profile.json"))).data.habilities || [])
+
+    console.log(JSON.parse(JSON.stringify(require("../../data/Profile.json"))).data.habilities)
 
     return(
+        <>
         <Container theme={ currentTheme }>
             <Welcome>
                 <InfoWelcome theme={ currentTheme }>
@@ -39,12 +52,14 @@ const Home: React.FC = () => {
                     <p>Me chamo Marcos e nesse site você vai conhecer um pouco mais sobre mim. Venha navegar e se aventurar neste portifólio.</p>
                     <div>
                         <a href="/files/Currículo_Final.pdf" download>Download CV</a>
-                        <button>Entrar em contato</button>
+                        <a href="https://api.whatsapp.com/send?phone=5511964972517" target="_blank" rel="noreferrer">
+                            Entrar em contato
+                        </a>
                     </div>
                 </InfoWelcome>
                 <img src={ HomeImg } alt="home"/>
             </Welcome>
-            <Resume>
+            <Resume id="contacts">
                 <h1>Resumo</h1>
                 <div className="info">
                     <p>Fascinado pela tecnologia me familiarizei com a área de programação, 
@@ -77,7 +92,7 @@ const Home: React.FC = () => {
                     />
                 </div>
             </Resume>
-            <Projects theme={ currentTheme }>
+            <Projects id="projects" theme={ currentTheme }>
                 <h1>Projetos</h1>
                 { projectsData.map((project, index) => (
                     <ProjectsCard
@@ -88,13 +103,40 @@ const Home: React.FC = () => {
                             <h1>{ project.name }</h1>
                             <p>{ project.description }</p>
                             <div>
-                                <a href={ project.link } target="_blank" rel="porjectlink">Veja mais...</a>
+                                <a href={ project.link } target="_blank" rel="noreferrer">Veja mais...</a>
                             </div>
                         </div>
                     </ProjectsCard>
                 ))}
             </Projects>
+            <Services>
+                <h1>Serviços</h1>
+                <ServicesCard>
+                    <h1>Criação de Sites</h1>
+                    <CgWebsite />
+                </ServicesCard>
+                <ServicesCard>
+                    <h1>Desenvolvedor React</h1>
+                    <FaReact />
+                </ServicesCard>
+                <ServicesCard>
+                    <h1>Desenvolvedor Nodejs</h1>
+                    <FaNodeJs />
+                </ServicesCard>
+                <ServicesCard>
+                    <h1>Desenvolvedor Mobile</h1>
+                    <GrAndroid />
+                </ServicesCard>
+            </Services>
+            <Skills>
+                <h1>Skills</h1>
+                <Experiences habilities={ skillsData } />
+            </Skills>
         </Container>
+        <Footer>
+            <p>Desenvolvido por Marcos Moreira</p>
+        </Footer>
+        </>
     )
 }
 

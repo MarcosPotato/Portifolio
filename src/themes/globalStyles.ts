@@ -51,6 +51,40 @@ export default createGlobalStyle<GlobalStyleProps>`
         width: 60% !important;
     }
 
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    ::-webkit-scrollbar-button {
+        width: 1px;
+        height: 1px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #4a25a2;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #3f2088;
+    }
+    ::-webkit-scrollbar-thumb:active {
+        background: #341b6f;
+    }
+    ::-webkit-scrollbar-track {
+        background: #e3e3e3;
+        border: 0px none #ffffff;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-track:hover {
+        background: #b0b0b0;
+    }
+    ::-webkit-scrollbar-track:active {
+        background: #949494;
+    }
+    ::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
     @media (max-width: 1200px) {
         .MuiDrawer-paper {
             width: 100% !important;

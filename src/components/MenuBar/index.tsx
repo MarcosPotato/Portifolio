@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { useState } from "react"
 import { Link, useMatch } from "react-router-dom"
 import { Drawer } from '@mui/material'
+import { Link as ScrollLink } from 'react-scroll'
 
 import { useTheme } from "../../hooks/themeContext"
 import { FiMenu } from 'react-icons/fi'
@@ -12,7 +13,8 @@ import {
     MenuActions,
     MobileMenu,
     MobileMenuButton,
-    ToggleThemeButton
+    ToggleThemeButton,
+    MobileMenuScrollLink
 } from "./style"
 
 const MenuBar: React.FC = () => {
@@ -36,8 +38,8 @@ const MenuBar: React.FC = () => {
             </div>
             <MenuActions theme={ theme.currentTheme }>
                 <Link to="/about">Sobre Mim</Link>
-                <button>Projetos</button>
-                <Link to="">Contato</Link>
+                <ScrollLink to="projects" spy smooth>Projetos</ScrollLink>
+                <ScrollLink to="contacts" spy smooth>Contato</ScrollLink>
                 <Link to="">Skills</Link>
             </MenuActions>
             <button onClick={() => setOpenMenu(true)}>
@@ -64,14 +66,8 @@ const MenuBar: React.FC = () => {
                     >
                         Sobre Mim
                     </MobileMenuButton>
-                    <button>Projetos</button>
-                    <MobileMenuButton 
-                        to="/contact"
-                        theme={ theme.currentTheme }
-                        isSelected={ (match?.pathname === "/contact")? true : false } 
-                    >
-                        Contato
-                    </MobileMenuButton>
+                    {/* <MobileMenuScrollLink theme={ theme.currentTheme } to="projects" spy smooth>Projetos</MobileMenuScrollLink>
+                    <MobileMenuScrollLink theme={ theme.currentTheme } to="contacts" spy smooth>Contato</MobileMenuScrollLink> */}
                     <MobileMenuButton 
                         to="/skills"
                         theme={ theme.currentTheme }
